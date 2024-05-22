@@ -3,10 +3,15 @@ import io from 'socket.io-client';
 import './chat.css';
 
 function Chat() {
+    const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
     const [loggedInUsername, setLoggedInUsername] = useState('');
     const [messages, setMessages] = useState([]);
     const [messageInput, setMessageInput] = useState('');
-    const socket = io('http://localhost:5000');
+    const socket = io(backendUrl, {
+        transports: ['websocket'], // optional, but can help with CORS issues
+        withCredentials: true,
+      });
 
     useEffect(() => {
         const storedUsername = localStorage.getItem('loggedInUsername');
@@ -20,7 +25,10 @@ function Chat() {
     }, []);
 
     useEffect(() => {
-        const socket = io('http://localhost:5000');
+        const socket = io(backendUrl, {
+            transports: ['websocket'], // optional, but can help with CORS issues
+            withCredentials: true,
+          });
         console.log("Socket connected:", socket.connected);
         socket.on('connect',()=> {
             console.log("Socket Connected!!")
