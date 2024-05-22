@@ -1,0 +1,111 @@
+/* chat.css */
+
+/* Chat container styles */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+  margin-top: 50px;
+  border: 1px solid;
+  height: 400px;
+  width: 70%;
+  margin-left: 250px;
+  border-radius: 20px;
+  background-color:rgb(18 26 28);
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+/* Message container styles */
+.messages {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.sender {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Individual message styles */
+
+
+/* Styles for messages sent by the current user */
+.message.right {
+  padding-right: 20px;
+  align-items: flex-end;
+}
+
+/* Styles for messages sent by other users */
+.message.left {
+  align-items: flex-start;
+}
+
+/* Input container styles */
+.input-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Input field styles */
+.input-container input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+/* Send button styles */
+.input-container button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+.right-sender{
+  padding-right: 8px;
+  color: red;
+}
+.left-sender{
+  color: rgb(0, 255, 60);
+  font-weight: bold;
+}
+
+.left-sendermsg{
+  background-color: #6d6d6d;
+  color:white;
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 70%; /* Set maximum width for messages */
+  word-wrap: break-word; /* Wrap long words */
+  overflow-wrap: break-word; /* Wrap long words for Firefox */
+  width: auto; /* Auto width */
+  height: auto; /* Auto height */
+}
+.right-sendermsg{
+  background-color: #17b947;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 70%; /* Set maximum width for messages */
+  word-wrap: break-word; /* Wrap long words */
+  overflow-wrap: break-word; /* Wrap long words for Firefox */
+  width: auto; /* Auto width */
+  height: auto; /* Auto height */
+}
+
+/* Adjustments for better mobile responsiveness */
+@media (max-width: 600px) {
+  .message {
+    max-width: 80%;
+  }
+}
