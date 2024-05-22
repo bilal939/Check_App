@@ -4,11 +4,11 @@ import './chat.css';
 
 function Chat() {
     const backendUrl = process.env.REACT_APP_BACKEND_URL;
-
+    console.log(backendUrl);
     const [loggedInUsername, setLoggedInUsername] = useState('');
     const [messages, setMessages] = useState([]);
     const [messageInput, setMessageInput] = useState('');
-    const socket = io(backendUrl, {
+    const socket = io("chatbackend-production-4a65.up.railway.app", {
         transports: ['websocket'], // optional, but can help with CORS issues
         withCredentials: true,
       });
@@ -25,7 +25,7 @@ function Chat() {
     }, []);
 
     useEffect(() => {
-        const socket = io(backendUrl, {
+        const socket = io("chatbackend-production-4a65.up.railway.app", {
             transports: ['websocket'], // optional, but can help with CORS issues
             withCredentials: true,
           });
